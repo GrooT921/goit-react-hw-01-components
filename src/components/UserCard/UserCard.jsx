@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import css from './UserCard.module.css'
+import { ProfileUser } from "./UserCard.styled";
 export default function Profile({ avatar, username, tag, location, followers, views, likes }) {
     return (
-        <div className={css.profile}>
+        <ProfileUser>
             <div className={css.description}>
                 <img
                     className={css.user_avatar}
@@ -28,7 +29,7 @@ export default function Profile({ avatar, username, tag, location, followers, vi
                     <span className={css.quantity}>{likes}</span>
                 </li>
             </ul>
-        </div>
+        </ProfileUser >
     );
 };
 
