@@ -1,34 +1,32 @@
 import PropTypes from "prop-types";
-import css from './UserCard.module.css'
-import { ProfileUser } from "./UserCard.styled";
+import { ProfileUser, Description, UserAvatar, UserName, UserTag, UserLocation, UserStats, StatsItem, StatItemLabel, StatItemQuantity } from "./UserCard.styled";
 export default function Profile({ avatar, username, tag, location, followers, views, likes }) {
     return (
         <ProfileUser>
-            <div className={css.description}>
-                <img
-                    className={css.user_avatar}
+            <Description>
+                <UserAvatar
                     src={avatar}
                     alt={username}
                 />
-                <p className={css.name}>{username}</p>
-                <p className={css.tag}>{tag}</p>
-                <p className={css.location}>{location}</p>
-            </div>
+                <UserName>{username}</UserName>
+                <UserTag>{tag}</UserTag>
+                <UserLocation>{location}</UserLocation>
+            </Description>
 
-            <ul className={css.stats}>
-                <li className={css.stats_item}>
-                    <span className={css.label}>Followers</span>
-                    <span className={css.quantity}>{followers}</span>
-                </li>
-                <li className={css.stats_item}>
-                    <span className={css.label}>Views</span>
-                    <span className={css.quantity}>{views}</span>
-                </li>
-                <li className={css.stats_item}>
-                    <span className={css.label}>Likes</span>
-                    <span className={css.quantity}>{likes}</span>
-                </li>
-            </ul>
+            <UserStats>
+                <StatsItem>
+                    <StatItemLabel>Followers</StatItemLabel>
+                    <StatItemQuantity>{followers}</StatItemQuantity>
+                </StatsItem>
+                <StatsItem>
+                    <StatItemLabel>Views</StatItemLabel>
+                    <StatItemQuantity>{views}</StatItemQuantity>
+                </StatsItem>
+                <StatsItem>
+                    <StatItemLabel>Likes</StatItemLabel>
+                    <StatItemQuantity>{likes}</StatItemQuantity>
+                </StatsItem>
+            </UserStats>
         </ProfileUser >
     );
 };
