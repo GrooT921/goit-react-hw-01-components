@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const FriendList = styled.ul`
+export const FriendListStyle = styled.ul`
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

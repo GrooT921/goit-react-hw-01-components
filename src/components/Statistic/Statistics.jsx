@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import { SectionUploadStats, UploadStatsTitle, StatList, StatListItem, StatLabel, StatPercentage } from './UserStatistic.styled';
-import { getRandomHexColor } from '../utils/randomColor';
-export default function Statistics({ stats }) {
+import { getRandomHexColor } from '../../utils/randomColor';
+export default function Statistics({title=null, stats }) {
     return (
-    <SectionUploadStats>
-        <UploadStatsTitle>Upload stats</UploadStatsTitle>
+        <SectionUploadStats>
+            
+            
+            { title !== null && <UploadStatsTitle> {title}</UploadStatsTitle>}
 
         <StatList>
             {stats.map(stat =>
@@ -20,9 +22,10 @@ export default function Statistics({ stats }) {
 };
 
 Statistics.propTypes = {
+    title: PropTypes.string,
     stats: PropTypes.arrayOf(PropTypes.exact({
-        label: PropTypes.string,
-        percentage: PropTypes.number,
-        id: PropTypes.string,
+        label: PropTypes.string.isRequired,
+        percentage: PropTypes.number.isRequired,
+        id: PropTypes.string.isRequired,
     })),
 };
